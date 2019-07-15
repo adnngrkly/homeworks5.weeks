@@ -1,0 +1,133 @@
+errorless="""                   ------  
+                  |     | 
+                  |     
+                  |
+                  |
+                  |
+                  |
+                 --- """
+firsterror="""                  ------   
+                  |     | 
+                  |     O
+                  |
+                  |
+                  |
+                  |
+                 --- """
+secondterror="""               ------    
+                  |     | 
+                  |     O
+                  |    /
+                  |
+                  |
+                  |
+                 --- """
+thirderror="""                ------   
+                  |     | 
+                  |     O
+                  |    / \\
+                  |
+                  |
+                  |
+                 --- """
+
+fourtherror="""               ------   
+                  |     | 
+                  |     O
+                  |   / | \\
+                  |     |
+                  |     |
+                  |      
+                 --- """
+fiftherror="""                ------    
+                  |     | 
+                  |     O
+                  |   / | \\
+                  |     |
+                  |     |
+                  |   /  
+                 --- """
+
+sixtherror="""                ------   
+                  |     | 
+                  |     O
+                  |   / | \\
+                  |     |
+                  |     |
+                  |   /   \\
+                 --- """
+
+
+
+
+alphapet='qwertyuiopasdfghjklzxcvbnm'
+guessword="sometimes"
+longguessword=len(guessword)
+screen=list(longguessword*"_")
+listguessword=list(guessword)
+counter=0
+print("\n")
+print("The word which you need to know occur {} words".format(longguessword))
+print("\n")
+print(*screen,end="\n\n\n")
+while counter<6:
+    leftcounter = 6 - counter
+    print("You have {} attempts left!!!".format(leftcounter))
+    startingvalue = 0
+    if counter == 0:
+        print(errorless)
+    elif counter == 1:
+        print(firsterror)
+    elif counter == 2:
+        print(secondterror)
+    elif counter == 3:
+        print(thirderror)
+    elif counter == 4:
+        print(fourtherror)
+    elif counter == 5:
+        print(fiftherror)
+    elif counter == 6:
+        print(sixtherror)
+        print("unfortunately, You been fail!! ")
+        quit()
+
+    wasguessedword = input("Please you guess same value in the alphabet")
+    while True:
+        if wasguessedword in alphapet:
+            letteracount=listguessword.count(wasguessedword)
+            if letteracount!=0:
+                try:
+                    while letteracount!=0:
+                        x=listguessword.index(wasguessedword,startingvalue,longguessword)
+                        startingvalue=x+1
+                        screen.pop(x)
+                        screen.insert(x,wasguessedword)
+                        letteracount-=1
+                        continue
+                    print(*screen)
+                    answer=input("Do you want to guess:\ty-n")
+                    if answer=="n":
+                        counter += 1
+                        pass
+                    elif  answer=="y":
+                        allguess=input("Please enter your guess")
+                        if allguess==guessword:
+                            print("Congratulations!, You knew  it!!!!")
+                            quit()
+                        else:
+                            print("Unfortunately, You didin't know it")
+                            counter+=2
+                    break
+                except ValueError:
+                    pass
+            else:
+                counter+=1
+                break
+
+        else:
+            print("entered value should be in the alphapet")
+            break
+if counter>=6:
+    print(sixtherror)
+    print("unfortunately, You been fail!! ")
+    quit()

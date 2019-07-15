@@ -1,0 +1,33 @@
+choosenumber='1234'
+value=list(choosenumber)
+
+while True:
+    guessvalue=input("Plese enter one number which have four digits")
+    converterguesvalue=list(guessvalue)
+    choosenumber = '1234'
+    value = list(choosenumber)
+    scorepositif = 0
+    scorenegetif = 0
+    i = 0
+    k = 4
+
+    while i<k:
+        if value[i]==converterguesvalue[i]:
+            value.pop(i)
+            converterguesvalue.pop(i)
+            k-=1
+            scorepositif+=1
+            continue
+        else:
+            i+=1
+            continue
+    newscore=4-scorepositif
+    for i in range(newscore):
+        if value[i] in converterguesvalue:
+            scorenegetif+=1
+    if scorepositif==4:
+        print("Congratulanions, You kew it")
+        quit()
+    else:
+        print("Result: +{} -{}".format(scorepositif,scorenegetif))
+        continue

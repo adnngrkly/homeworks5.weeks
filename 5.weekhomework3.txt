@@ -1,0 +1,29 @@
+value1=['1','2','3','4','5','6','7','8','9','10']
+value2=['a','b','c','d','e','f','g','j','k','l']
+
+
+value3=[]
+value4=[]
+for i in range(10):
+    k=0
+    while k<10:
+        m=value1[i]
+        n=value2[k]
+        f=m+n
+        yeni=[f]
+        k+=1
+        value3=value3+yeni
+        continue
+for i in range(10):
+    k = 0
+    while k < 10:
+        m = value1[i]
+        n = value2[k]
+        f = n+m
+        yeni = [f]
+        k += 1
+        value4 = value4 + yeni
+        continue
+
+print(list(value3))
+print(list(value4))

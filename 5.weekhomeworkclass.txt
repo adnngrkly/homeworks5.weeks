@@ -1,0 +1,75 @@
+gorev = """Lutfen yapmak istediginiz islemi seciniz
+         Yapilacaklar listesine gorev ekleme icin                         1
+         Yapilacaklar listesinden gorev silme icin                        2
+         Yapilacaklar listesindeki gorevi yapilanlar listesine atama icin 3
+         Yapilanlar listesini goruntuleme icin                            4
+         kullanici yapilacaklar listesinin içini bosaltma icin            5 """
+
+yapilacaklar_listesi=[]
+yapilanlar_listesi=[]
+
+while True:
+    while True:
+        if yapilacaklar_listesi==[]:
+            print("yapilacaklar listenizde suanda hicbir gorev bulunmamaktadir")
+        else:
+            uzunluk=len(yapilacaklar_listesi)
+            i=0
+            while i<uzunluk:
+                print("{}.gorev={}".format(i+1,yapilacaklar_listesi[i]))
+                i+=1
+                continue
+        break
+    while True:
+        if yapilanlar_listesi == []:
+            print("yapilanlar listenizde suanda hicbir yapilan gorev bulunmamaktadir")
+        else:
+            uzunluk1 = len(yapilanlar_listesi)
+            i = 0
+            while i < uzunluk1:
+                print("{}.gorev={}".format(i + 1, yapilanlar_listesi[i]))
+                i+=1
+                continue
+        break
+    print(gorev)
+    secim=input("Lutfen isleminizi seciniz")
+    if secim=="1":
+
+        yenigorev=input("Lutfen yeni gorevi yaziniz")
+        yapilacaklar_listesi.append(yenigorev)
+        continue
+    elif secim=="2":
+        if yapilacaklar_listesi==[]:
+            print("yapilacaklar listenizde suanda hicbir gorev bulunmamaktadir")
+            continue
+        else:
+
+            silinecekgorev=int(input("Slmek istediginiz grevi seciniz"))
+            del yapilacaklar_listesi[silinecekgorev-1]
+            continue
+    elif secim=="3":
+        if yapilacaklar_listesi==[]:
+            print("yapilacaklar listenizde suanda hicbir gorev bulunmamaktadir")
+            continue
+        else:
+
+            degisecekgorev=int(input("Yapilacaklar listesindeki hangi gorevi yapilanlar listesine eklemek istiyorsunuz"))
+            yapilacaklar_listesi.pop(degisecekgorev-1)
+            yapilanlar_listesi.append(degisecekgorev-1)
+            continue
+    elif secim=="4":
+        if yapilanlar_listesi == []:
+            print("yapilanlar listenizde suanda hicbir yapilan gorev bulunmamaktadir")
+        else:
+            uzunluk2 = len(yapilanlar_listesi)
+            i = 0
+            while i < uzunluk2:
+                print("{}.gorev={}".format(i + 1, yapilanlar_listesi[i]))
+                i+=1
+                continue
+        continue
+    elif secim=="5":
+
+
+        yapilacaklar_listesi.clear()
+        continue
