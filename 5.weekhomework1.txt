@@ -107,7 +107,7 @@ while counter<6:
                     print(*screen)
                     answer=input("Do you want to guess:\ty-n")
                     if answer=="n":
-                        counter += 1
+                        
                         pass
                     elif  answer=="y":
                         allguess=input("Please enter your guess")
@@ -116,7 +116,7 @@ while counter<6:
                             quit()
                         else:
                             print("Unfortunately, You didin't know it")
-                            counter+=2
+                            counter+=1
                     break
                 except ValueError:
                     pass
